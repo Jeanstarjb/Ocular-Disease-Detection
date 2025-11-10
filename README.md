@@ -61,6 +61,9 @@ This project successfully developed a **multi-label ocular disease classificatio
 
 ---
 
+link to Tableau: https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1?publish=yes
+
+
 ## 3. Technical Approach
 
 ### 3.1 Final Model Architecture
@@ -126,6 +129,8 @@ The CDSS serves as an automated **first-pass screening tool**.
 ---
 
 ## 5. Technical Specifications
+Link to deployed app: https://a-teamstrivetowin.streamlit.app/
+
 
 ### 5.1 Software Dependencies
 ```bash
