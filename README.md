@@ -2,10 +2,13 @@
 
 ## 1. Business Understanding
 
+
 ### 1.1 Project Background: The Scalability Crisis in Ophthalmology
+
 
 Ocular diseases such as **Diabetic Retinopathy (DR)**, **Glaucoma**, and **Cataracts** are leading causes of preventable blindness worldwide.  
 Diagnosis relies on **manual examination of retinal fundus images** by highly trained ophthalmologists — a process that faces critical challenges, driving the need for automation.
+
 
 #### Key Challenges
 - **Scalability & Accessibility:**  
@@ -17,7 +20,9 @@ Diagnosis relies on **manual examination of retinal fundus images** by highly tr
 
 ---
 
+
 ### 1.2 Problem Statement & Objectives
+
 
 #### Problem Statement
 The current manual screening process is **inefficient, unscalable, and inaccessible**, leading to preventable vision loss.  
