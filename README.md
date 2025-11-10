@@ -10,8 +10,7 @@ A **Clinical Decision Support System** for automated multi-label ocular disease 
 
 - 🌐 **Live App:** https://a-teamstrivetowin.streamlit.app/
 - 📊 **Dashboard:** https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1
-- 📄 **Full Technical Report:** [/docs/TECHNICAL_REPORT.md](/docs/TECHNICAL_REPORT.md)
-- 📋 **Clinical Guidelines:** [/docs/CLINICAL_GUIDELINES.md](/docs/CLINICAL_GUIDELINES.md)
+
 
 ---
 
@@ -245,7 +244,6 @@ pip install -r requirements.txt
 - 🔤 **Single Modality:** Fundus image only; no OCT, visual fields, or IOP
 - 📈 **No Severity Grading:** Detects disease presence, not stage
 
-**See [Clinical Guidelines](/docs/CLINICAL_GUIDELINES.md) for detailed disclaimers.**
 
 ---
 
@@ -308,7 +306,7 @@ curl -X POST "http://localhost:8000/predict" \
 - [ ] Mobile/edge deployment
 - [ ] Demographic-specific model variants
 
-See [TECHNICAL_REPORT.md](/docs/TECHNICAL_REPORT.md) for detailed roadmap.
+See (Final Report) for detailed roadmap.
 
 ---
 
@@ -316,10 +314,7 @@ See [TECHNICAL_REPORT.md](/docs/TECHNICAL_REPORT.md) for detailed roadmap.
 
 | Document | Purpose |
 |:---------|:--------|
-| [TECHNICAL_REPORT.md](/docs/TECHNICAL_REPORT.md) | Complete technical details, business context, and evaluation |
-| [CLINICAL_GUIDELINES.md](/docs/CLINICAL_GUIDELINES.md) | Clinical use recommendations and limitations |
-| [API_DOCUMENTATION.md](/docs/API_DOCUMENTATION.md) | API reference and code examples |
-| [DEPLOYMENT_GUIDE.md](/docs/DEPLOYMENT_GUIDE.md) | Production deployment instructions |
+| [TECHNICAL_REPORT](Final_Report.pdf) | Complete technical details, business context, and evaluation |
 
 ---
 
@@ -335,8 +330,6 @@ See [TECHNICAL_REPORT.md](/docs/TECHNICAL_REPORT.md) for detailed roadmap.
 
 MIT License — Free for research, education, and commercial use.
 
-See [LICENSE](LICENSE) for details.
-
 ---
 
 ## 🙏 Citation
@@ -344,8 +337,8 @@ See [LICENSE](LICENSE) for details.
 ```bibtex
 @software{ocular_disease_2024,
   title={AI-Driven Ocular Disease Detection: Multi-Label Classification using DenseNet-121},
-  author={Team A},
-  year={2024},
+  author={A-TEAM},
+  year={2025},
   url={https://github.com/Jeanstarjb/ocular-disease-detection},
   note={Clinical Decision Support System}
 }
@@ -355,10 +348,8 @@ See [LICENSE](LICENSE) for details.
 
 ## 💬 Support
 
-- 📧 **Email:** contact@example.com
 - 🐛 **Issues:** https://github.com/Jeanstarjb/ocular-disease-detection/issues
 - 💬 **Discussions:** https://github.com/Jeanstarjb/ocular-disease-detection/discussions
-- 📖 **Docs:** See `/docs` folder
 
 ---
 
