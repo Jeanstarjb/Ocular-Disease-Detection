@@ -165,7 +165,7 @@ By automating the detection of multiple eye diseases from a single image, this s
 
 Clone the Repository
 
-git clone https://github.com/yourusername/ocular-disease-detection.git
+git clone https://github.com/Jeanstarjb/ocular-disease-detection.git
 cd ocular-disease-detection
 
 
