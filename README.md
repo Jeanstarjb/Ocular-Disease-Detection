@@ -1,38 +1,78 @@
-# 👁️ AI-Driven Ocular Disease Detection
+# 👁️ Ocular Vision - AI-Driven Disease Detection
 
 A **Clinical Decision Support System** for automated multi-label ocular disease detection from fundus images using DenseNet-121 transfer learning.
 
-**Status:** ✅ Deployed | **Test AUC:** 0.9666 | **Accuracy:** 94.69%
+**Status:** ✅ Deployed | **Test AUC:** 0.9666 | **Accuracy:** 94.69% | **Macro F1:** 0.7871
 
 ---
 
 ## 🎯 Quick Links
 
-- 🌐 **Live App:** https://a-teamstrivetowin.streamlit.app/
-- 📊 **Dashboard:** https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1
-
+| Resource | Description | Link |
+|:---------|:------------|:-----|
+| 🌐 **Live Streamlit App** | Upload fundus images for real-time diagnosis | [Try it now](https://a-teamstrivetowin.streamlit.app/) |
+| 📊 **Tableau Dashboard** | Interactive performance analytics & demographics | [View dashboard](https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1) |
+| 🌍 **Project Website** | Complete case study & technical walkthrough | [Explore website](https://jeanstarjb.github.io/Ocular-Disease-Detection-web-report/) |
+| 📄 **Technical Report** | Full documentation & methodology | [Read report](Final_Report.pdf) |
+| 💻 **GitHub Repository** | Source code & notebooks | [View code](https://github.com/Jeanstarjb/ocular-disease-detection) |
 
 ---
 
 ## 📖 What This Project Does
 
-This system detects **8 ocular diseases** from a single fundus image:
-- ✅ Normal
-- ✅ Diabetes (Diabetic Retinopathy)
-- ✅ Glaucoma
-- ✅ Cataract
-- ✅ AMD (Age-related Macular Degeneration)
-- ✅ Hypertension
-- ✅ Myopia
-- ✅ Other Abnormalities
+This Moringa School capstone project addresses the **scalability crisis in ophthalmology** by creating an automated system that provides a reliable "second opinion" for medical professionals and enables early detection of preventable blindness.
 
-**Real-world impact:** Automates screening to reduce specialist workload by 40-50% and enables diagnosis in underserved regions.
+### 8 Detected Ocular Pathologies
+
+Our multi-label classification model can simultaneously detect:
+
+- ✅ **Normal** (Healthy)
+- ✅ **Diabetes** (Diabetic Retinopathy)
+- ✅ **Glaucoma**
+- ✅ **Cataract**
+- ✅ **AMD** (Age-related Macular Degeneration)
+- ✅ **Hypertension**
+- ✅ **Myopia**
+- ✅ **Other Abnormalities**
+
+### Real-World Impact
+
+- 🏥 **40-50% reduction** in specialist workload through automated screening
+- 🌍 **Democratizes access** to early diagnosis in underserved regions
+- ⚡ **2-3ms inference time** enables real-time screening
+- 🎯 **94.69% accuracy** provides clinical-grade reliability
+
+---
+
+## 📊 Model Performance
+
+| Metric | Value | Status |
+|:-------|:-----:|:------:|
+| Test AUC | **0.9666** | ✅ (Target: ≥0.90) |
+| Test Accuracy | **94.69%** | ✅ |
+| Macro F1-Score | **0.7871** | ✅ |
+| Inference Time | **2–3 ms/image** | ⚡ |
+| Model Size | **230 MB** | 💾 |
+
+### Per-Class Performance
+
+| Disease | Precision | Recall | F1-Score | Status |
+|:--------|:---------:|:------:|:--------:|:------:|
+| **Cataract** | 0.91 | 0.90 | **0.91** | 🏆 Best |
+| **Myopia** | 0.88 | 0.88 | **0.88** | 🏆 Best |
+| **AMD** | 0.86 | 0.85 | **0.86** | ✅ |
+| **Glaucoma** | 0.81 | 0.85 | **0.83** | ✅ |
+| **Normal** | 0.78 | 0.86 | **0.82** | ✅ |
+| **Hypertension** | 0.80 | 0.78 | **0.79** | ✅ |
+| **Diabetes** | 0.84 | 0.71 | **0.77** | ⚠️ Lower recall |
+| **Other** | 0.65 | 0.57 | **0.65** | ⚠️ Needs improvement |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Python 3.8+
 - GPU (NVIDIA GTX 1060+ recommended for inference)
 - 250 MB storage for model weights
@@ -85,33 +125,9 @@ for idx, class_name in enumerate(class_names):
 
 ---
 
-## 📊 Model Performance
+## 🏗️ Technical Architecture
 
-| Metric | Value |
-|:-------|------:|
-| Test AUC | **0.9666** ✓ |
-| Test Accuracy | **94.69%** |
-| Macro F1-Score | **0.7871** |
-| Inference Time | 2–3 ms/image |
-
-### Per-Class Results
-
-| Disease | Precision | Recall | F1-Score |
-|:--------|:----------:|:-------:|:--------:|
-| Cataract | 0.91 | 0.90 | **0.91** 🏆 |
-| Myopia | 0.88 | 0.88 | **0.88** 🏆 |
-| AMD | 0.86 | 0.85 | **0.86** |
-| Glaucoma | 0.81 | 0.85 | **0.83** |
-| Normal | 0.78 | 0.86 | **0.82** |
-| Diabetes | 0.84 | 0.71 | **0.77** |
-| Hypertension | 0.80 | 0.78 | **0.79** |
-| Other | 0.65 | 0.57 | **0.65** |
-
----
-
-## 🏗️ Architecture
-
-**Transfer Learning with DenseNet-121**
+### Model: DenseNet-121 with Transfer Learning
 
 ```
 Input (224×224×3)
@@ -128,9 +144,21 @@ Dense(8, Sigmoid)
 Output: 8-Class Probabilities
 ```
 
-**Training:** 2-phase fine-tuning
-- Phase 1 (5 epochs): Frozen base, train head
-- Phase 2 (15 epochs): Unfreeze & fine-tune
+### Training Strategy
+
+**2-Phase Fine-Tuning:**
+- **Phase 1 (5 epochs):** Frozen base layers, train classification head
+- **Phase 2 (15 epochs):** Unfreeze base, end-to-end fine-tuning
+
+### Technology Stack
+
+| Category | Technologies |
+|:---------|:-------------|
+| **Data Science** | Python, Pandas, NumPy, Scikit-Learn |
+| **Deep Learning** | TensorFlow 2.13, Keras, DenseNet-121 |
+| **Visualization** | Matplotlib, Seaborn, Tableau |
+| **Deployment** | Streamlit, GitHub Pages |
+| **Collaboration** | Git, GitHub |
 
 ---
 
@@ -138,11 +166,11 @@ Output: 8-Class Probabilities
 
 | Aspect | Details |
 |:-------|:--------|
-| Total Images | 37,649 |
-| Train / Val / Test | 64% / 16% / 20% |
-| Classes | 8 (multi-label) |
-| Image Size | 224×224 pixels |
-| Format | RGB JPEG/PNG |
+| **Total Images** | 37,649 |
+| **Train / Val / Test** | 64% / 16% / 20% |
+| **Classes** | 8 (multi-label) |
+| **Image Size** | 224×224 pixels |
+| **Format** | RGB JPEG/PNG |
 
 **Sources:**
 - ODIR-5K: 6,392 images
@@ -185,20 +213,18 @@ ocular-disease-detection/
 ## 💻 System Requirements
 
 ### Minimum (Inference Only)
-- GPU: NVIDIA GTX 1060 (6GB VRAM)
-- RAM: 8 GB
-- Storage: 250 MB
-- CPU: Intel i7 / AMD Ryzen 5
+- **GPU:** NVIDIA GTX 1060 (6GB VRAM)
+- **RAM:** 8 GB
+- **Storage:** 250 MB
+- **CPU:** Intel i7 / AMD Ryzen 5
 
 ### Recommended (Training)
-- GPU: NVIDIA A100 / RTX 4090 (40GB+)
-- RAM: 64 GB
-- Storage: 500 GB SSD
-- CPU: High-core processor
+- **GPU:** NVIDIA A100 / RTX 4090 (40GB+)
+- **RAM:** 64 GB
+- **Storage:** 500 GB SSD
+- **CPU:** High-core processor
 
----
-
-## 📋 Software Dependencies
+### Software Dependencies
 
 ```
 tensorflow==2.13.0
@@ -209,9 +235,10 @@ pandas==2.0.0
 pillow==9.5.0
 streamlit==1.24.0
 matplotlib==3.7.0
+seaborn (latest)
 ```
 
-Install all:
+Install all dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -220,39 +247,50 @@ pip install -r requirements.txt
 
 ## 🔬 Clinical Use Cases
 
-✅ **Pre-Screening Triage**
+### ✅ Approved Applications
+
+**Pre-Screening Triage**
 - Flag abnormal cases for urgent review
 - Prioritize sight-threatening conditions
+- Enable efficient resource allocation
 
-✅ **Normal Scan Filtering**
+**Normal Scan Filtering**
 - Automate healthy eye identification
 - Free specialist capacity for complex cases
+- Reduce routine screening burden
 
-✅ **Remote Screening**
+**Remote Screening**
 - Enable diagnosis in underserved areas
 - Scalable to resource-limited settings
+- Support telemedicine initiatives
 
-⚠️ **Important:** Model is an **assistive screening tool only**. All predictions require specialist review and clinical correlation.
+### ⚠️ Important Clinical Disclaimer
+
+This model is an **assistive screening tool only**. All predictions require:
+- Specialist review and clinical correlation
+- Confirmation by licensed ophthalmologist
+- Integration with patient history and symptoms
+- Compliance with local medical regulations
 
 ---
 
-## ⚠️ Limitations
+## ⚠️ Known Limitations
 
 - 🔍 **"Other" Class:** Lower recall (57%) due to heterogeneous pathologies
-- 🎯 **Diabetes Recall:** 71% sensitivity; may miss some cases
+- 🎯 **Diabetes Recall:** 71% sensitivity; may miss some early-stage cases
 - 📊 **Class Imbalance:** Rare diseases (3-5%) have limited training data
-- 🔤 **Single Modality:** Fundus image only; no OCT, visual fields, or IOP
-- 📈 **No Severity Grading:** Detects disease presence, not stage
-
+- 🔤 **Single Modality:** Fundus images only; no OCT, visual fields, or IOP integration
+- 📈 **No Severity Grading:** Detects disease presence but not progression stage
+- 🌐 **Dataset Bias:** Training data may not represent all global populations
 
 ---
 
 ## 🔄 API Usage
 
-### Streamlit App (Easiest)
+### Option 1: Streamlit App (Easiest)
 Upload image → Get predictions → View triage recommendation
 
-### Python API
+### Option 2: Python API
 ```python
 from app.inference import predict_disease
 
@@ -260,7 +298,7 @@ predictions = predict_disease('path/to/image.jpg')
 # Returns: {'disease_name': probability, ...}
 ```
 
-### FastAPI (if deployed with API server)
+### Option 3: FastAPI (Production Deployment)
 ```bash
 curl -X POST "http://localhost:8000/predict" \
   -F "image=@fundus_image.jpg"
@@ -268,103 +306,121 @@ curl -X POST "http://localhost:8000/predict" \
 
 ---
 
-## 📈 Results Summary
-
-✅ **All success criteria achieved:**
-- AUC: 0.9666 (target: ≥0.90)
-- Accuracy: 94.69%
-- Macro F1: 0.7871
-
-✅ **Best performing classes:**
-- Cataract: F1 = 0.91
-- Myopia: F1 = 0.88
-
-✅ **Production ready:**
-- Live web app deployed
-- <3ms inference per image
-- 230 MB model size
-
----
-
 ## 🔮 Future Work
 
-**Short-term (3-6 months):**
+### Short-term (3-6 months)
 - [ ] Grad-CAM explainability visualization
 - [ ] Sub-categorize "Other" pathologies
 - [ ] External validation (Messidor-2, EyePACS, APTOS)
 - [ ] Severity grading for Diabetes & AMD
 
-**Mid-term (6-12 months):**
+### Mid-term (6-12 months)
 - [ ] Multi-modal architecture (image + patient metadata)
-- [ ] Federated learning for privacy
+- [ ] Federated learning for privacy preservation
 - [ ] Uncertainty quantification
 - [ ] EHR integration (HL7/FHIR)
 
-**Long-term (12+ months):**
+### Long-term (12+ months)
 - [ ] OCT & visual field analysis
 - [ ] Longitudinal progression modeling
 - [ ] Mobile/edge deployment
 - [ ] Demographic-specific model variants
 
-See (Final Report) for detailed roadmap.
+See [Final Technical Report](Final_Report.pdf) for detailed roadmap.
+
+---
+
+## 🧑‍💻 The Team
+
+This collaborative capstone project was developed by a 6-person team of data scientists:
+
+| Team Member | Role | LinkedIn |
+|:------------|:-----|:---------|
+| **Jeff Munyaka Mogaka** | Project Lead | [LinkedIn](https://linkedin.com/in/jeff-munyaka-mogaka) |
+| **Kitts Kikumu** | ML Engineer | [LinkedIn](https://linkedin.com/in/kitts-kikumu) |
+| **Kelvin Kinoti** | Data Engineer | [LinkedIn](https://linkedin.com/in/kelvin-kinoti) |
+| **Judith Otieno** | Research Analyst | [LinkedIn](https://linkedin.com/in/judith-otieno) |
+| **Teresia Ndung'u** | Data Visualization | [LinkedIn](https://linkedin.com/in/teresia-ndungu) |
+| **Fridah Njung'e** | Clinical Validation | [LinkedIn](https://linkedin.com/in/fridah-njunge) |
 
 ---
 
 ## 📄 Documentation
 
-| Document | Purpose |
-|:---------|:--------|
-| [TECHNICAL_REPORT](Final_Report.pdf) | Complete technical details, business context, and evaluation |
-
----
-
-## 📊 External Links
-
-- **Live Web App:** https://a-teamstrivetowin.streamlit.app/
-- **Analytics Dashboard:** https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1
-- **GitHub Repository:** https://github.com/Jeanstarjb/ocular-disease-detection
+| Document | Purpose | Link |
+|:---------|:--------|:-----|
+| **Technical Report** | Complete methodology, evaluation & results | [View PDF](Final_Report.pdf) |
+| **Clinical Guidelines** | Medical use recommendations | [View docs](docs/CLINICAL_GUIDELINES.md) |
+| **API Documentation** | Integration reference | [View docs](docs/API_DOCUMENTATION.md) |
+| **Deployment Guide** | Production setup instructions | [View docs](docs/DEPLOYMENT_GUIDE.md) |
+| **Project Website** | Interactive case study | [Visit site](https://jeanstarjb.github.io/Ocular-Disease-Detection-web-report/) |
 
 ---
 
 ## 📜 License
 
-MIT License — Free for research, education, and commercial use.
+MIT License — Free for research, education, and commercial use with attribution.
+
+See [LICENSE](LICENSE) file for full terms.
 
 ---
 
 ## 🙏 Citation
 
+If you use this work in your research or applications, please cite:
+
 ```bibtex
-@software{ocular_disease_2024,
-  title={AI-Driven Ocular Disease Detection: Multi-Label Classification using DenseNet-121},
-  author={A-TEAM},
+@software{ocular_disease_2025,
+  title={Ocular Vision: AI-Driven Multi-Label Disease Detection using DenseNet-121},
+  author={Mogaka, Jeff Munyaka and Kikumu, Kitts and Kinoti, Kelvin and 
+          Otieno, Judith and Ndung'u, Teresia and Njung'e, Fridah},
   year={2025},
+  institution={Moringa School},
   url={https://github.com/Jeanstarjb/ocular-disease-detection},
-  note={Clinical Decision Support System}
+  note={Clinical Decision Support System - Capstone Project}
 }
 ```
 
 ---
 
-## 💬 Support
+## 💬 Support & Contributions
 
-- 🐛 **Issues:** https://github.com/Jeanstarjb/ocular-disease-detection/issues
-- 💬 **Discussions:** https://github.com/Jeanstarjb/ocular-disease-detection/discussions
+| Need Help? | Link |
+|:-----------|:-----|
+| 🐛 **Report Issues** | [GitHub Issues](https://github.com/Jeanstarjb/ocular-disease-detection/issues) |
+| 💬 **Discussions** | [GitHub Discussions](https://github.com/Jeanstarjb/ocular-disease-detection/discussions) |
+| 📧 **Contact** | [Project Email](mailto:team@ocular-vision.dev) |
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
 ## ⭐ Key Takeaways
 
-🎯 **Achieves clinical-grade performance** (AUC 0.9666)
+🎯 **Clinical-grade performance** (AUC 0.9666) validated on 37,649 images
 
-🚀 **Production-ready & deployed** (live web app + dashboard)
+🚀 **Production-ready & deployed** with live web app and dashboard
 
-📈 **40-50% efficiency gains** for specialist workflows
+📈 **40-50% efficiency gains** for specialist screening workflows
 
-🌍 **Democratizes access** to early screening
+🌍 **Democratizes access** to early detection in underserved regions
 
-💡 **Extensible architecture** for future improvements
+💡 **Extensible architecture** ready for multi-modal expansion
+
+🏆 **Best-in-class results** for Cataract (F1: 0.91) and Myopia (F1: 0.88)
 
 ---
 
-**Last Updated:** November 10, 2025 | **Version:** 1.0.0 | **Status:** ✅ Live
+<div align="center">
+
+**🌟 Star this repository if you find it useful! 🌟**
+
+[Live Demo](https://a-teamstrivetowin.streamlit.app/) · [Dashboard](https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1) · [Website](https://jeanstarjb.github.io/Ocular-Disease-Detection-web-report/) · [Report Issues](https://github.com/Jeanstarjb/ocular-disease-detection/issues)
+
+---
+
+**Last Updated:** November 16, 2025 | **Version:** 1.0.0 | **Status:** ✅ Live & Production-Ready
+
+*Developed as a Moringa School Data Science Capstone Project*
+
+</div>
