@@ -13,7 +13,7 @@ A **Clinical Decision Support System** for automated multi-label ocular disease 
 | 🌐 **Live Streamlit App** | Upload fundus images for real-time diagnosis | [Try it now](https://a-teamstrivetowin.streamlit.app/) |
 | 📊 **Tableau Dashboard** | Interactive performance analytics & demographics | [View dashboard](https://public.tableau.com/app/profile/teresia.ndung.u/viz/AI-drivenoculardiseasedetection/Dashboard1) |
 | 🌍 **Project Website** | Complete case study & technical walkthrough | [Explore website](https://jeanstarjb.github.io/Ocular-Disease-Detection-web-report/) |
-| 📄 **Technical Report** | Full documentation & methodology | [Read report](Final_Report.pdf) |
+| 📄 **Technical Report** | Full documentation & methodology | [Read report](https://github.com/Jeanstarjb/Ocular-Disease-Detection/blob/main/Final%20Report.pdf) |
 | 💻 **GitHub Repository** | Source code & notebooks | [View code](https://github.com/Jeanstarjb/ocular-disease-detection) |
 
 ---
